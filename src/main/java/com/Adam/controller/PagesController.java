@@ -19,10 +19,10 @@ public class PagesController {
 
 
 	// 기획리스트
-	@GetMapping(value = "/projectList")
-	public String projectList() {
-		return "pages/projectList";
-	}
+//	@GetMapping(value = "/projectList")
+//	public String projectList() {
+//		return "pages/projectList";
+//	}
 
 	// 이달의 플랜
 	@GetMapping(value = "/calendar")

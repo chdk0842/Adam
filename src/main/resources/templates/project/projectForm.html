@@ -106,7 +106,7 @@
 				<div class="col-md-12" th:if="${#lists.isEmpty(projectFormDto.projectImgDtoList)}">
 					<div th:each="num: ${#numbers.sequence(1,5)}">
 						<div class="mb-3">
-						<label for ="formFile" class="form-label custom-file-label" th:text="프로젝트 이미지 + ${num}"></label>
+						<label for ="formFile" class="form-label custom-file-label" th:text="'프로젝트 이미지' + ${num}"></label>
 						<input class="form-control custom-file-input" type="file" id="projectImgFile" name = "projectImgFile"></div>
 					</div>
 				</div>
@@ -117,18 +117,19 @@
 						<div class="mb-3">
 						<label for ="formFile" class="form-label custom-file-label"
 						th:text="${not #strings.isEmpty(projectImgDto.oriImgName)}"></label>
-						<input type ="hidden" name="projectImgIds" th:value="${projectImgDto.projectId}">
+						<input type ="hidden" name="projectImgIds" th:value="${projectImgDto.id}">
 						<input class="form-control custom-file-input" type="file" id="projectImgFile" name = "projectImgFile"></div>
 					</div>
 				</div>
 
 
+                
                 <div th:if="${#strings.isEmpty(projectFormDto.id)}">
-                 <button th:formaction="@{/project/new}" class="btn btn-primary btn_add mb-3" type="submit">등록</button>
+                 <button th:formaction="@{/admin/project/new}" class="btn btn-primary" type="submit">등록</button>
                 </div>
                 
                  <div th:unless="${#strings.isEmpty(projectFormDto.id)}">
-                  <button th:formaction="@{'/project/' + ${projectFormDto.id} }" class="btn btn-primary btn_add mb-3" type="submit">수정</button>
+                  <button th:formaction="@{'/admin/project/' + ${projectFormDto.id} }" class="btn btn-primary" type="submit">수정</button>
                  </div>
                 
                 

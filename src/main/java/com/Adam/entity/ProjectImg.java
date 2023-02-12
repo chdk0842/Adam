@@ -13,13 +13,11 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @Table(name="project_img") //테이블명
 @Getter
 @Setter
-@ToString
 public class ProjectImg extends BaseEntity{
 
 	@Id

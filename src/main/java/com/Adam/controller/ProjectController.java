@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,11 +26,12 @@ public class ProjectController {
 	
 	private final ProjectService projectService;
 	
-	    //기획하기 프로젝트 등록 페이지
+	    //기획하기 페이지
 		@GetMapping(value = "/admin/project/new")
 		public String projectForm(Model model) {
 			model.addAttribute("projectFormDto", new ProjectFormDto());
 			return "project/projectForm";
+			
 		}
 		
 		//프로젝트 등록
@@ -65,6 +67,7 @@ public class ProjectController {
 			} catch (Exception e) {
 				model.addAttribute("errorMessage", "존재하지 않는 프로젝트입니다.");
 				model.addAttribute("projectFormDto", new ProjectFormDto());
+				return "project/projectForm";
 			}
 			return "project/projectForm";
 		}
@@ -86,6 +89,7 @@ public class ProjectController {
 					try {
 						projectService.updateProject(projectFormDto, projectImgFileList);
 					} catch (Exception e) {
+						e.printStackTrace();
 						model.addAttribute("errorMessage", "프로젝트 수정 중 에러가 발생했습니다.");
 						return "project/projectForm";
 					}

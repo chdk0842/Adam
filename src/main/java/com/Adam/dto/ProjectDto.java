@@ -3,6 +3,8 @@ package com.Adam.dto;
 import java.sql.Date;
 import java.time.LocalDateTime;
 
+import com.Adam.constant.ProjectSellStatus;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +22,8 @@ public class ProjectDto {
      private Date projectDate; //기간
      
      private String gitLink; //링크
+     
+     private ProjectSellStatus projectSellStatus;
      
      private LocalDateTime regTime; //등록시간
      

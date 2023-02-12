@@ -14,11 +14,14 @@ QuerydslPredicateExecutor<Project>, ProjectRepositoryCustom {
     
 	List<Project> findByProjectName(String projectName);
 	
-	List<Project> findByProjectNameorProjectContentContent(String projectName, String projectContent);
+	List<Project> findByProjectNameOrProjectContent(String projectName, String projectContent);
 	
-	@Query("select p from Project p where p.ProjectContent like %?1% order by p.deadLine desc")
-	List<Project> findByProjectContent(String projectContent);
+//내가 작성	@Query("select p from Project p where p.projectContent like %?1% order by p.deadLine desc")
+//	List<Project> findByProjectContent(String projectContent);
 	
-	@Query(value = "select * from Project p where p.content like %:projectContent% order by p.deadLine desc", nativeQuery =true)
-	List<Project> findByProjectContentByNative(@Param("projectContent") String projectContent);
+	@Query(value = "select * from Project p where p.project_content like %:Content% order by p.dead_line desc", nativeQuery = true)
+	   List<Project> findByProjectContent(@Param("Content") String projectContent);
+	
+//	@Query(value = "select * from Project p where p.projectContent like %:projectContent% order by p.deadLine desc", nativeQuery =true)
+//	List<Project> findByProjectContentByNative(@Param("projectContent") String projectContent);
 }

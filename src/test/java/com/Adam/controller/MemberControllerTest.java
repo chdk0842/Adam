@@ -14,11 +14,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.formLogin;
 
-import com.Adam.constant.Role;
-import com.Adam.dto.CompanyDto;
-import com.Adam.dto.MemberFormDto;
-import com.Adam.entity.Company;
-import com.Adam.entity.Member;
 import com.Adam.service.MemberService;
 
 @SpringBootTest

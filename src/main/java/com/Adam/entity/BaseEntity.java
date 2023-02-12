@@ -10,9 +10,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import lombok.Getter;
 
-@Getter
 @EntityListeners(value = {AuditingEntityListener.class})
 @MappedSuperclass
+@Getter
 public class BaseEntity extends BaseTimeEntity{
 
 	@CreatedBy
